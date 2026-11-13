@@ -26,23 +26,41 @@
 
 body {
 	margin: 0;
+	/* Room for the fixed sidebar. The right margin mirrors it when the window is
+	 * wide enough, and gives way first when it isn't: it only takes the space
+	 * left over beyond the full text column (40rem plus 2rem padding) */
+	padding-left: var(--sidebar);
+	padding-right: min(var(--sidebar), max(0px, 100% - var(--sidebar) - 42rem));
 	background: var(--bg);
 	color: var(--fg);
 	font: 16px/1.6 "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 main {
-	max-width: 52rem;
+	max-width: 40rem; /* about 70 characters a line, for comfortable reading */
 	margin: 0 auto;
 	padding: 2rem 1rem 4rem;
 }
 
-/* Side navigation: a fixed column on wide screens, a header on narrow ones */
+/* Side navigation: a fixed column, the full height of the window */
+:root {
+	--sidebar: 15rem;
+}
+
 .sidebar {
+	position: fixed;
+	inset: 0 auto 0 0;
+	box-sizing: border-box;
+	width: var(--sidebar);
 	padding: 1rem;
-	border-bottom: 1px solid var(--border);
+	overflow-y: auto;
+	border-right: 1px solid var(--border);
 	background: var(--panel);
 	font-size: .9rem;
+	/* Drag the bottom-right corner to resize; sidebar.js keeps --sidebar in step */
+	resize: horizontal;
+	min-width: 9rem;
+	max-width: 30rem;
 }
 
 .sidebar ul {
@@ -84,54 +102,28 @@ main {
 	background: none !important;
 }
 
-.pages {
-	display: flex;
-	gap: .25rem;
+.toc-title {
+	margin: 1.5rem .5rem .25rem;
+	color: var(--fg);
+	font-size: .75rem;
+	font-weight: 600;
+	letter-spacing: .05em;
+	text-transform: uppercase;
 }
 
-.toc, .source {
-	display: none;
+/* Nested headings, indented under their section */
+.toc ul ul {
+	padding-left: .75rem;
 }
 
-@media (min-width: 64rem) {
-	.sidebar {
-		position: fixed;
-		inset: 0 auto 0 0;
-		width: 15rem;
-		overflow-y: auto;
-		border-right: 1px solid var(--border);
-		border-bottom: none;
-	}
+.source {
+	margin: 1.5rem 0 0;
+}
 
-	main {
-		margin-left: 17rem;
-		margin-right: auto;
-	}
-
-	.pages {
-		display: block;
-	}
-
-	.toc, .source {
-		display: block;
-	}
-
-	.toc-title {
-		margin: 1.5rem .5rem .25rem;
-		color: var(--fg);
-		font-size: .75rem;
-		font-weight: 600;
-		letter-spacing: .05em;
-		text-transform: uppercase;
-	}
-
-	/* Nested headings, indented under their section */
-	.toc ul ul {
-		padding-left: .75rem;
-	}
-
-	.source {
-		margin: 1.5rem 0 0;
+/* Narrow windows: a slimmer column */
+@media (max-width: 48rem) {
+	:root {
+		--sidebar: 11rem;
 	}
 }
 

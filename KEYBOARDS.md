@@ -11,18 +11,22 @@ left to your keymap.
 
 ## ErgoDox EZ
 
-The outer pinky keys sit on the 1.5u outer column.
+On [the ErgoDox EZ](https://ergodox-ez.com/), the outer pinky keys sit on
+the 1.5u outer column.
 
 ![Fullerene on the ErgoDox EZ](images/keyboards/ergodox-ez.svg)
 
 ## Kinesis Advantage360
 
-The outer pinky keys sit on the 1.25u outer column, at the bottom of the key
-well.
+On [the Advantage360](https://kinesis-ergo.com/keyboards/advantage360/), the
+outer pinky keys sit on the 1.25u outer column, at the bottom of the key well.
 
 ![Fullerene on the Kinesis Advantage360](images/keyboards/advantage360.svg)
 
 ## MoErgo Go60
+
+[The Go60](https://www.moergo.com/pages/go60) has 60 keys: a number row, three
+letter rows, a short bottom row and a thumb arc on each half.
 
 ![Fullerene on the MoErgo Go60](images/keyboards/go60.svg)
 
