@@ -16,6 +16,10 @@
 # Options:
 #   -h, --help  Show this help message
 #
+# Environment:
+#   SITE_URL    Published address, for canonical links, link previews and the
+#               sitemap (default: https://sobh.github.io/fullerene/)
+#
 # Requirements:
 #   POSIX sh, pandoc 3.1.11 or later (for GitHub callouts)
 #
@@ -73,27 +77,51 @@ fi
 site_dir=$(cd "$(dirname "$0")" && pwd)
 repo_dir=$(dirname "$site_dir")
 output_dir=${1:-$repo_dir/_site}
+site_url=${SITE_URL:-https://sobh.github.io/fullerene/}
 
 command -v pandoc >/dev/null 2>&1 || die "pandoc not found"
 
 # ==== Build ===================================================================
-# Render one Markdown page ($1) to an HTML page ($2) titled $3. The template
-# adds the side navigation, highlighting page $4 (index or keyboards) and
-# listing the page's section headings.
+# Render one Markdown page ($1) to an HTML page ($2, empty for index.html,
+# the site's address). The template adds the side navigation, highlighting
+# page $3 (index or keyboards), and the page's title ($4) and description ($5)
+# for search results and link previews.
 render() {
-	pandoc --from gfm --to html5 --standalone \
+	pandoc --from gfm --to html5 --standalone --wrap none \
 		--template "$site_dir/template.html" \
 		--lua-filter "$site_dir/links.lua" \
 		--toc --toc-depth 2 \
-		--variable "current-$4" \
-		--metadata pagetitle="$3" \
-		--output "$output_dir/$2" \
+		--variable "current-$3" \
+		--variable "site-url=$site_url" \
+		--variable "page=$2" \
+		--metadata pagetitle="$4" \
+		--metadata description="$5" \
+		--output "$output_dir/${2:-index.html}" \
 		"$repo_dir/$1"
 }
 
 mkdir -p "$output_dir"
-render README.md index.html "Fullerene" index
-render KEYBOARDS.md keyboards.html "Fullerene on split keyboards" keyboards
+render README.md "" index \
+	"Fullerene – a keyboard layout for split keyboards" \
+	"Fullerene is an English keyboard layout for split columnar keyboards, with light pinkies, few same-finger bigrams and an ANSI version for laptops."
+render KEYBOARDS.md keyboards.html keyboards \
+	"Fullerene on the ErgoDox EZ, Advantage360, Go60 and Imprint" \
+	"The Fullerene keyboard layout on the ErgoDox EZ, Kinesis Advantage360, MoErgo Go60 and Cyboard Imprint split keyboards."
+
+# Search engines: allow everything, and list the pages
+cat >"$output_dir/robots.txt" <<-ROBOTS
+	User-agent: *
+	Allow: /
+
+	Sitemap: ${site_url}sitemap.xml
+ROBOTS
+cat >"$output_dir/sitemap.xml" <<-SITEMAP
+	<?xml version="1.0" encoding="UTF-8"?>
+	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+		<url><loc>$site_url</loc></url>
+		<url><loc>${site_url}keyboards.html</loc></url>
+	</urlset>
+SITEMAP
 
 cp "$site_dir/style.css" "$site_dir/sidebar.js" "$output_dir/"
 cp "$repo_dir/LICENSE" "$repo_dir/NOTICE" "$output_dir/"
