@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 256" width="806" height="256" role="img" aria-label="Fullerene">
 	<style>
-		svg { --d0: #a1a1aa; --d1: #52525b; --d2: #09090b; --ink: #09090b; }
+		svg { --d0: #a1a1aa; --d1: #52525b; --d2: #09090b; --ink: #09090b; --bg: #ffffff; }
 		@media (prefers-color-scheme: dark) {
-			svg { --d0: #71717a; --d1: #a1a1aa; --d2: #fafafa; --ink: #fafafa; }
+			svg { --d0: #71717a; --d1: #a1a1aa; --d2: #fafafa; --ink: #fafafa; --bg: #18181b; }
 		}
 		.d0 { stroke: var(--d0); fill: var(--d0); }
 		.d1 { stroke: var(--d1); fill: var(--d1); }
@@ -10,6 +10,8 @@
 		line { stroke-linecap: round; }
 		.name { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 			font-size: 112px; font-weight: 700; letter-spacing: 1px; fill: var(--ink); }
+		.tagline { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+			font-size: 34px; fill: var(--d1); }
 	</style>
 
 <circle class="d0" cx="128.0" cy="103.4" r="2.0"/>

@@ -7,7 +7,8 @@
  * Usage (from anywhere):
  * 	node images/logo.mjs
  *
- * Writes logo.svg (the molecule) and logo-wordmark.svg (with the name) next to this
+ * Writes logo.svg (the molecule), logo-wordmark.svg (with the name) and social.svg
+ * (the link preview card; render it to social.png, see the README) next to this
  * script. Colours come from palette.json and follow the viewer's light or dark
  * theme.
  */
@@ -67,7 +68,8 @@ const view = (a) => turnX(turnZ(turnX(a, ALIGN), SPIN), TIP);
  * the front of the molecule, fading to the back. */
 function themeVars(theme) {
 	const { fg } = PALETTE[theme];
-	const vars = { "d0": fg.subtle, "d1": fg.muted, "d2": fg.primary, "ink": fg.primary };
+	const vars = { "d0": fg.subtle, "d1": fg.muted, "d2": fg.primary, "ink": fg.primary,
+		"bg": theme === "light" ? PALETTE.light.bg.primary : PALETTE.dark.bg.muted };
 	return Object.entries(vars).map(([name, value]) => `--${name}: ${value};`).join(" ");
 }
 
@@ -81,6 +83,8 @@ const STYLE = `
 		line { stroke-linecap: round; }
 		.name { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 			font-size: 112px; font-weight: 700; letter-spacing: 1px; fill: var(--ink); }
+		.tagline { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+			font-size: 34px; fill: var(--d1); }
 	</style>
 `;
 
@@ -122,6 +126,12 @@ function main() {
 		["logo-wordmark.svg", svg(Math.round(3.15 * SIZE), SIZE,
 			`${molecule(half, half, half - 10)}\n<text class="name" x="${SIZE + 24}" y="${half + 40}">Fullerene</text>`,
 			"Fullerene")],
+		// Link preview card (Open Graph): 1200x630, rendered to social.png
+		["social.svg", svg(1200, 630,
+			`<rect width="1200" height="630" fill="var(--bg)"/>\n${molecule(290, 315, 180)}\n`
+			+ `<text class="name" x="520" y="320">Fullerene</text>\n`
+			+ `<text class="tagline" x="524" y="385">A keyboard layout for split keyboards</text>`,
+			"Fullerene: a keyboard layout for split keyboards")],
 	];
 	for (const [name, content] of images) {
 		const path = join(HERE, name);

@@ -139,10 +139,14 @@ node images/generate.mjs
 ```
 
 The logo, a C60 fullerene, comes from [`images/logo.mjs`](images/logo.mjs):
-`logo.svg` for the molecule alone, `logo-wordmark.svg` with the name.
+`logo.svg` for the molecule alone, `logo-wordmark.svg` with the name, and
+`social.svg`, the card shown in link previews. Link previews need a PNG, so
+render the card to `social.png` too:
 
 ```sh
 node images/logo.mjs
+chromium --headless --hide-scrollbars --window-size=1200,630 \
+	--screenshot="$PWD/images/social.png" "file://$PWD/images/social.svg"
 ```
 
 ## 📄 License
