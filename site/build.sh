@@ -94,7 +94,7 @@ mkdir -p "$output_dir"
 render README.md index.html "Fullerene" index
 render KEYBOARDS.md keyboards.html "Fullerene on split keyboards" keyboards
 
-cp "$site_dir/style.css" "$output_dir/"
+cp "$site_dir/style.css" "$site_dir/sidebar.js" "$output_dir/"
 cp "$repo_dir/LICENSE" "$repo_dir/NOTICE" "$output_dir/"
 cp -R "$repo_dir/images" "$repo_dir/linux" "$output_dir/"
 
