@@ -5,8 +5,7 @@
 # ⚛️ Fullerene
 
 An English keyboard layout for split columnar keyboards, with an ANSI version
-for laptops. See it on the ErgoDox EZ, Kinesis Advantage360, MoErgo Go60 and
-Cyboard Imprint in [KEYBOARDS.md](KEYBOARDS.md).
+for laptops.
 
 Fullerene is mainly inspired by
 [Graphite](https://github.com/rdavison/graphite-layout) and
@@ -26,6 +25,11 @@ the layout was made for a 60-key split keyboard.
 q c s t n w   b h a e i '
 z y g m r x   . p , / - ;
 ```
+
+> [!TIP]
+>
+> See it on [Ergonomic Split Keyboards](KEYBOARDS.md) the ErgoDox EZ, Kinesis
+> Advantage360, MoErgo Go60 and Cyboard Imprint.
 
 ## ✨ Design
 
@@ -91,9 +95,9 @@ outside the letter grid is unchanged from US English.
 Practise Fullerene in the browser before installing anything, on your usual
 keyboard. Download a layout file and import it as a custom layout:
 
-| Trainer | Layout file |
-| --- | --- |
-| [type-fu](https://type-fu.com/) | [`typing/fullerene.tfl`](typing/fullerene.tfl) |
+| Trainer                         | Layout file                                                  |
+| ------------------------------- | ------------------------------------------------------------ |
+| [type-fu](https://type-fu.com/) | [`typing/fullerene.tfl`](typing/fullerene.tfl)               |
 | [keybr](https://www.keybr.com/) | [`typing/fullerene.keybr.json`](typing/fullerene.keybr.json) |
 
 Both follow the ANSI version above.
@@ -116,6 +120,7 @@ setxkbmap -layout us,fullerene # X11, next to US English
 ```
 
 > [!TIP]
+>
 > Home row mods and other key remappers (kanata, keyd) work on key positions,
 > so they keep working: a hold on the QWERTY `a` key still gives the same
 > modifier, while a tap types `c`.
