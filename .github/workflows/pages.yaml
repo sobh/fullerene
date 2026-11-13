@@ -1,0 +1,66 @@
+# Build the website from the Markdown pages and publish it to GitHub Pages.
+# Enable it once in the repo: Settings > Pages > Source: GitHub Actions.
+name: 🌐 Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; let a running one finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  PANDOC_VERSION: "3.14"
+
+jobs:
+  pages:
+    name: 🚀 Build and deploy
+    # 1-core container runner: plenty for this site; jobs are capped at 15 minutes
+    runs-on: ubuntu-slim
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 📥 Check out
+        uses: actions/checkout@v7
+
+      - name: ⚛️ Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+
+      # Ubuntu's pandoc is too old for GitHub callouts (> [!NOTE])
+      - name: 📦 Install pandoc
+        run: |
+          curl -fsSLo pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb"
+          sudo dpkg -i pandoc.deb
+          rm pandoc.deb
+
+      - name: 🎨 Generate images
+        run: |
+          node images/generate.mjs
+          node images/logo.mjs
+
+      - name: 📄 Build site
+        run: site/build.sh _site
+
+      - name: ⚙️ Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: 📤 Upload site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

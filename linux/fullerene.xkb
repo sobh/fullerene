@@ -1,0 +1,70 @@
+// The Fullerene Keyboard Layout
+//
+// For a standard row-staggered (ANSI) keyboard. The 28 main keys fill the
+// 3x10 letter grid; the four rare keys, which sit on the outer pinky keys of a
+// split keyboard, go to the pinky top keys and beside them:
+//   q on Q (unchanged), ; on P, ' on ' (unchanged), z on [
+// - and _ are in the letter grid, which frees the - and = keys for the
+// brackets: [ { on -, ] } on =, and = + on ]
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+	name[Group1] = "English (Fullerene)";
+
+	include "us(basic)"
+
+	// Right Alt acts as Level 3 chooser (AltGr)
+	include "level3(ralt_switch)"
+
+	// Map 4 levels per key
+	//              Level 1     Level 2     Level 3         Level 4
+	//          [   Normal,     Shift+Key,  AltGr+Key,      Shift+AltGr+Key ]
+
+	// Number Row (- and = keys)
+	key <AE11>  {[  bracketleft,    braceleft   ]};
+	key <AE12>  {[  bracketright,   braceright  ]};
+
+	// Top Row Left Hand
+	key <AD01>  {[  q,          Q           ]};
+	key <AD02>  {[  v,          V           ]};
+	key <AD03>  {[  d,          D           ]};
+	key <AD04>  {[  l,          L           ]};
+	key <AD05>  {[  j,          J           ]};
+
+	// Top Row Right Hand
+	key <AD06>  {[  k,          K           ]};
+	key <AD07>  {[  f,          F           ]};
+	key <AD08>  {[  o,          O           ]};
+	key <AD09>  {[  u,          U           ]};
+	key <AD10>  {[  semicolon,  colon       ]};
+	key <AD11>  {[  z,          Z           ]};
+	key <AD12>  {[  equal,      plus        ]};
+
+	// Home Row Left Hand
+	key <AC01>  {[  c,          C           ]};
+	key <AC02>  {[  s,          S           ]};
+	key <AC03>  {[  t,          T           ]};
+	key <AC04>  {[  n,          N           ]};
+	key <AC05>  {[  w,          W           ]};
+
+	// Home Row Right Hand
+	key <AC06>  {[  b,          B           ]};
+	key <AC07>  {[  h,          H           ]};
+	key <AC08>  {[  a,          A           ]};
+	key <AC09>  {[  e,          E           ]};
+	key <AC10>  {[  i,          I           ]};
+	key <AC11>  {[  apostrophe, quotedbl    ]};
+
+	// Bottom Row Left Hand
+	key <AB01>  {[  y,          Y           ]};
+	key <AB02>  {[  g,          G           ]};
+	key <AB03>  {[  m,          M           ]};
+	key <AB04>  {[  r,          R           ]};
+	key <AB05>  {[  x,          X           ]};
+
+	// Bottom Row Right Hand
+	key <AB06>  {[  period,     greater     ]};
+	key <AB07>  {[  p,          P           ]};
+	key <AB08>  {[  comma,      less        ]};
+	key <AB09>  {[  slash,      question    ]};
+	key <AB10>  {[  minus,      underscore  ]};
+};

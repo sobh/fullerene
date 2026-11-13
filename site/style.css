@@ -1,0 +1,102 @@
+:root {
+	color-scheme: light dark;
+	--bg: #ffffff;
+	--fg: #09090b;
+	--muted: #52525b;
+	--border: #e4e4e7;
+	--panel: #fafafa;
+	--link: #2563eb;
+	--note: #3b82f6;
+	--tip: #22c55e;
+	--important: #a855f7;
+	--warning: #f59e0b;
+	--caution: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #09090b;
+		--fg: #fafafa;
+		--muted: #a1a1aa;
+		--border: #27272a;
+		--panel: #18181b;
+		--link: #60a5fa;
+	}
+}
+
+body {
+	margin: 0 auto;
+	max-width: 52rem;
+	padding: 2rem 1rem 4rem;
+	background: var(--bg);
+	color: var(--fg);
+	font: 16px/1.6 "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, h2, h3 {
+	line-height: 1.25;
+}
+
+h2 {
+	margin-top: 2.5rem;
+	padding-bottom: .3rem;
+	border-bottom: 1px solid var(--border);
+}
+
+a {
+	color: var(--link);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+code, pre {
+	font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+	font-size: .9em;
+}
+
+pre {
+	overflow-x: auto;
+	padding: 1rem;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--panel);
+}
+
+:not(pre) > code {
+	padding: .1em .35em;
+	border-radius: 4px;
+	background: var(--panel);
+}
+
+table {
+	display: block;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: .4rem .75rem;
+	border: 1px solid var(--border);
+}
+
+/* GitHub callouts, as pandoc renders them: <div class="note"><div class="title"> */
+.note, .tip, .important, .warning, .caution {
+	margin: 1rem 0;
+	padding: .25rem 1rem;
+	border-left: 4px solid var(--accent);
+}
+
+.note { --accent: var(--note); }
+.tip { --accent: var(--tip); }
+.important { --accent: var(--important); }
+.warning { --accent: var(--warning); }
+.caution { --accent: var(--caution); }
+
+.title p {
+	margin: .5rem 0 0;
+	color: var(--accent);
+	font-weight: 600;
+}
