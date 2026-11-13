@@ -76,19 +76,23 @@ output_dir=${1:-$repo_dir/_site}
 command -v pandoc >/dev/null 2>&1 || die "pandoc not found"
 
 # ==== Build ===================================================================
-# Render one Markdown page ($1) to an HTML page ($2) titled $3
+# Render one Markdown page ($1) to an HTML page ($2) titled $3. The template
+# adds the side navigation, highlighting page $4 (index or keyboards) and
+# listing the page's section headings.
 render() {
 	pandoc --from gfm --to html5 --standalone \
+		--template "$site_dir/template.html" \
 		--lua-filter "$site_dir/links.lua" \
-		--css style.css \
+		--toc --toc-depth 2 \
+		--variable "current-$4" \
 		--metadata pagetitle="$3" \
 		--output "$output_dir/$2" \
 		"$repo_dir/$1"
 }
 
 mkdir -p "$output_dir"
-render README.md index.html "Fullerene"
-render KEYBOARDS.md keyboards.html "Fullerene on split keyboards"
+render README.md index.html "Fullerene" index
+render KEYBOARDS.md keyboards.html "Fullerene on split keyboards" keyboards
 
 cp "$site_dir/style.css" "$output_dir/"
 cp "$repo_dir/LICENSE" "$repo_dir/NOTICE" "$output_dir/"
