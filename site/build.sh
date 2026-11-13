@@ -4,7 +4,8 @@
 # Description:
 #   Builds the Fullerene website from the repo's Markdown pages: README.md
 #   becomes index.html and KEYBOARDS.md keyboards.html, next to copies of the
-#   images, the Linux files and the license files they link to.
+#   images, the Linux and typing trainer files, and the license files they
+#   link to.
 #
 # Usage:
 #   {{SCRIPT}} [-h|--help] [--] [output_dir]
@@ -96,6 +97,6 @@ render KEYBOARDS.md keyboards.html "Fullerene on split keyboards" keyboards
 
 cp "$site_dir/style.css" "$site_dir/sidebar.js" "$output_dir/"
 cp "$repo_dir/LICENSE" "$repo_dir/NOTICE" "$output_dir/"
-cp -R "$repo_dir/images" "$repo_dir/linux" "$output_dir/"
+cp -R "$repo_dir/images" "$repo_dir/linux" "$repo_dir/typing" "$output_dir/"
 
 printf ':: Site built in %s\n' "$output_dir"

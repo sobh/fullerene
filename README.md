@@ -86,6 +86,18 @@ outside the letter grid is unchanged from US English.
 
 `q` keeps its QWERTY key, so `z` (undo) is on the right hand here.
 
+## 🎯 Try it
+
+Practise Fullerene in the browser before installing anything, on your usual
+keyboard. Download a layout file and import it as a custom layout:
+
+| Trainer | Layout file |
+| --- | --- |
+| [type-fu](https://type-fu.com/) | [`typing/fullerene.tfl`](typing/fullerene.tfl) |
+| [keybr](https://www.keybr.com/) | [`typing/fullerene.keybr.json`](typing/fullerene.keybr.json) |
+
+Both follow the ANSI version above.
+
 ## 🐧 Linux install
 
 [`linux/install.sh`](linux/install.sh) installs the XKB layout and registers it
