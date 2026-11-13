@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 410" width="936" height="410" role="img" aria-label="Fullerene layout on a split keyboard">
 	<style>
-		svg { --bg: #ffffff; --ink: #09090b; --ink-2: #52525b; --case: #f4f4f5; --blank: #fafafa; --blank-s: #e4e4e7; --f0: #f3e8ff; --f0s: #a855f7; --f1: #dbeafe; --f1s: #3b82f6; --f2: #dcfce7; --f2s: #22c55e; --f3: #ffedd5; --f3s: #f97316; }
+		svg { --ink: #09090b; --ink-2: #52525b; --bg: #ffffff; --case: #f4f4f5; --blank: #fafafa; --blank-s: #e4e4e7; --f0: #f3e8ff; --f0s: #a855f7; --f1: #dbeafe; --f1s: #3b82f6; --f2: #dcfce7; --f2s: #22c55e; --f3: #ffedd5; --f3s: #f97316; }
 		@media (prefers-color-scheme: dark) {
-			svg { --bg: #09090b; --ink: #fafafa; --ink-2: #a1a1aa; --case: #18181b; --blank: #111111; --blank-s: #27272a; --f0: #2f0553; --f0s: #a855f7; --f1: #14204a; --f1s: #3b82f6; --f2: #042713; --f2s: #22c55e; --f3: #3b1106; --f3s: #f97316; }
+			svg { --ink: #fafafa; --ink-2: #a1a1aa; --bg: #18181b; --case: #27272a; --blank: #18181b; --blank-s: #3f3f46; --f0: #2f0553; --f0s: #a855f7; --f1: #14204a; --f1s: #3b82f6; --f2: #042713; --f2s: #22c55e; --f3: #3b1106; --f3s: #f97316; }
 		}
 
 		text { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: var(--ink); }

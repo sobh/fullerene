@@ -60,16 +60,22 @@ const PALETTE = JSON.parse(readFileSync(join(HERE, "palette.json"), "utf-8")).se
 const FINGER_HUES = ["purple", "blue", "green", "orange"]; // pinky, ring, middle, index
 
 /** CSS custom properties for one theme ("light" or "dark"). */
+// Neutral surfaces per theme, as [group, token] in the palette. Dark mode sits
+// one step up from the palette's near-black primary, which is too harsh
+const NEUTRALS = {
+	light: { "bg": ["bg", "primary"], "case": ["bg", "muted"], "blank": ["bg", "subtle"], "blank-s": ["border", "primary"] },
+	dark: { "bg": ["bg", "muted"], "case": ["bg", "emphasized"], "blank": ["bg", "muted"], "blank-s": ["border", "emphasized"] },
+};
+
 function themeVars(theme) {
 	const tokens = PALETTE[theme];
 	const vars = {
-		"bg": tokens.bg.primary,
 		"ink": tokens.fg.primary,
 		"ink-2": tokens.fg.muted,
-		"case": tokens.bg.muted,
-		"blank": tokens.bg.subtle,
-		"blank-s": tokens.border.primary,
 	};
+	for (const [name, [group, token]] of Object.entries(NEUTRALS[theme])) {
+		vars[name] = tokens[group][token];
+	}
 	FINGER_HUES.forEach((hue, i) => {
 		const family = tokens[hue] ?? tokens[{ purple: "violet" }[hue]]; // Open Color: violet
 		vars[`f${i}`] = family.subtle;
