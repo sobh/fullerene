@@ -10,13 +10,15 @@ for laptops.
 Fullerene is mainly inspired by
 [Graphite](https://github.com/rdavison/graphite-layout) and
 [Gallium](https://github.com/GalileoBlues/Gallium), and takes its name from
-the first: graphite is carbon in flat sheets, and a fullerene is a sheet of
-carbon closed into a cage, like the C60 "buckyball".
+the first: graphite is carbon in flat sheets, and a
+[fullerene](https://en.wikipedia.org/wiki/Fullerene) is a sheet of carbon
+closed into a cage, like the
+[C60 Buckyball](https://en.wikipedia.org/wiki/Buckminsterfullerene).
 
 The layout closes in the same way: the most used keys sit together in the
 middle, and only the rarest keys sit on the outer edge. C60 has 60 atoms, and
-the layout was made for a 60-key split keyboard.
-
+the layout was made for a 60-key split keyboard. Coincidence? Absolutely. But
+every atom found a key. ⚛️😉
 
 ![Fullerene on a split keyboard](images/fullerene.svg)
 
