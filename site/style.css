@@ -25,12 +25,114 @@
 }
 
 body {
-	margin: 0 auto;
-	max-width: 52rem;
-	padding: 2rem 1rem 4rem;
+	margin: 0;
 	background: var(--bg);
 	color: var(--fg);
 	font: 16px/1.6 "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+main {
+	max-width: 52rem;
+	margin: 0 auto;
+	padding: 2rem 1rem 4rem;
+}
+
+/* Side navigation: a fixed column on wide screens, a header on narrow ones */
+.sidebar {
+	padding: 1rem;
+	border-bottom: 1px solid var(--border);
+	background: var(--panel);
+	font-size: .9rem;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar a {
+	display: block;
+	padding: .2rem .5rem;
+	border-radius: 6px;
+	color: var(--muted);
+	text-decoration: none;
+}
+
+.sidebar a:hover {
+	color: var(--fg);
+	background: var(--border);
+}
+
+.sidebar a[aria-current="page"] {
+	color: var(--fg);
+	background: var(--border);
+	font-weight: 600;
+}
+
+.brand {
+	display: flex !important;
+	align-items: center;
+	gap: .5rem;
+	margin-bottom: 1rem;
+	color: var(--fg) !important;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.brand:hover {
+	background: none !important;
+}
+
+.pages {
+	display: flex;
+	gap: .25rem;
+}
+
+.toc, .source {
+	display: none;
+}
+
+@media (min-width: 64rem) {
+	.sidebar {
+		position: fixed;
+		inset: 0 auto 0 0;
+		width: 15rem;
+		overflow-y: auto;
+		border-right: 1px solid var(--border);
+		border-bottom: none;
+	}
+
+	main {
+		margin-left: 17rem;
+		margin-right: auto;
+	}
+
+	.pages {
+		display: block;
+	}
+
+	.toc, .source {
+		display: block;
+	}
+
+	.toc-title {
+		margin: 1.5rem .5rem .25rem;
+		color: var(--fg);
+		font-size: .75rem;
+		font-weight: 600;
+		letter-spacing: .05em;
+		text-transform: uppercase;
+	}
+
+	/* Nested headings, indented under their section */
+	.toc ul ul {
+		padding-left: .75rem;
+	}
+
+	.source {
+		margin: 1.5rem 0 0;
+	}
 }
 
 h1, h2, h3 {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>$pagetitle$</title>
+	<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+$if(highlighting-css)$
+	<style>
+$highlighting-css$
+	</style>
+$endif$
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<aside class="sidebar">
+		<a class="brand" href="index.html">
+			<img src="images/logo.svg" alt="" width="40" height="40">
+			<span>Fullerene</span>
+		</a>
+		<nav aria-label="Pages">
+			<ul class="pages">
+				<li><a href="index.html"$if(current-index)$ aria-current="page"$endif$>Layout</a></li>
+				<li><a href="keyboards.html"$if(current-keyboards)$ aria-current="page"$endif$>Keyboards</a></li>
+			</ul>
+		</nav>
+$if(toc)$
+		<nav class="toc" aria-label="On this page">
+			<p class="toc-title">On this page</p>
+$table-of-contents$
+		</nav>
+$endif$
+		<p class="source"><a href="https://github.com/sobh/fullerene">Source on GitHub</a></p>
+	</aside>
+	<main>
+$body$
+	</main>
+</body>
+</html>
