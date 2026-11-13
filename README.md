@@ -99,8 +99,8 @@ keyboard. Download a layout file and import it as a custom layout:
 
 | Trainer                         | Layout file                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
-| [type-fu](https://type-fu.com/) | [`typing/fullerene.tfl`](typing/fullerene.tfl)               |
-| [keybr](https://www.keybr.com/) | [`typing/fullerene.keybr.json`](typing/fullerene.keybr.json) |
+| [Type Fu](https://type-fu.com/) | [`typing/fullerene.tfl`](typing/fullerene.tfl)               |
+| [Keybr](https://www.keybr.com/) | [`typing/fullerene.keybr.json`](typing/fullerene.keybr.json) |
 
 Both follow the ANSI version above.
 

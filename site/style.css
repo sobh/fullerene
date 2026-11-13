@@ -254,6 +254,18 @@ th, td {
 	border: 1px solid var(--border);
 }
 
+/* Shades mixed from the text colour, so they work in light and dark mode:
+ * header row and first column stand out, body rows alternate (zebra bands) */
+tbody tr:nth-child(even) {
+	background: color-mix(in srgb, var(--fg) 3%, var(--bg));
+}
+
+thead th,
+tbody td:first-child {
+	background: color-mix(in srgb, var(--fg) 8%, var(--bg));
+	font-weight: 600;
+}
+
 /* GitHub callouts, as pandoc renders them: <div class="note"><div class="title"> */
 .note, .tip, .important, .warning, .caution {
 	margin: 1rem 0;
