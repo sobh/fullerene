@@ -44,14 +44,16 @@ z y g m r x   . p , / - ;
   the left hand.
 - **Shortcuts:** `c`, `v` and `z` (copy, paste, undo) are on the left hand.
 
-It was made in two stages with
-[keyboard_layout_optimizer](https://github.com/dariogoetz/keyboard_layout_optimizer)
-on English n-grams, with b and e pinned in place:
+It was made in two stages with [neokey](https://github.com/sobh/neokey) on
+English n-grams, with b and e pinned in place:
 
 1. The 28 most used keys, with the outer pinky keys disabled and the rare keys
    left out.
 2. The best placement of `q z ' ;` on the four outer pinky keys, out of all
    24.
+
+See [How Fullerene was made](DEVELOPMENT.md) for the whole process and the
+alternatives tested.
 
 ## 📊 Stats
 
