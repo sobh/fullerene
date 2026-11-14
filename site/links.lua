@@ -2,6 +2,7 @@
 local pages = {
 	["README.md"] = "index.html",
 	["KEYBOARDS.md"] = "keyboards.html",
+	["DEVELOPMENT.md"] = "development.html",
 }
 
 function Link(link)

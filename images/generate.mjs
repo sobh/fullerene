@@ -7,8 +7,9 @@
  *     node images/generate.mjs
  *
  * Writes fullerene.svg, fullerene-ansi.svg and keyboards/<name>.svg next to this
- * script. Keys are colored by finger; the images follow the viewer's light or dark
- * theme. Keyboard shapes are drawn from their key positions and are approximate.
+ * script. Keys are colored by finger, each of the eight in its own hue, with
+ * neighbouring hues for the same finger on either hand; the images follow the
+ * viewer's light or dark theme. Keyboard shapes are drawn from their key positions and are approximate.
  */
 
 // ==== Imports ================================================================
@@ -31,6 +32,8 @@ const LETTER = Object.fromEntries(ORDER.map(([r, c], i) => [`${r},${c}`, LAYOUT[
 const NUMBER = { 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 8: "6", 9: "7", 10: "8", 11: "9", 12: "0" };
 // Finger per column: 0 pinky, 1 ring, 2 middle, 3 index
 const FINGER = { 0: 0, 1: 0, 2: 1, 3: 2, 4: 3, 5: 3, 8: 3, 9: 3, 10: 2, 11: 1, 12: 0, 13: 0 };
+// Key color per column: the hand ("l" or "r") and the finger
+const COLOR = Object.fromEntries(Object.entries(FINGER).map(([c, f]) => [c, `${+c < 7 ? "l" : "r"}${f}`]));
 
 // ANSI rows: [x offset in keys, keys]; fingers follow standard touch typing
 const ANSI = [
@@ -39,7 +42,7 @@ const ANSI = [
 	[0.75, "cstnwbhaei'"],
 	[1.25, "ygmrx.p,/-"],
 ];
-const ANSI_FINGER = [0, 1, 2, 3, 3, 3, 3, 2, 1, 0, 0, 0]; // by position in the row
+const ANSI_COLOR = ["l0", "l1", "l2", "l3", "l3", "r3", "r3", "r2", "r1", "r0", "r0", "r0"]; // by position in the row
 
 // Shifted symbols shown in the key's corner
 const SHIFTED = {
@@ -55,9 +58,14 @@ const FINGERS = ["Pinky", "Ring", "Middle", "Index"];
 
 // Colors from a palette's semantic tokens (palette.json, light and dark), so any
 // palette with the same tokens drops in: bg, fg and border for the neutrals, and
-// per color family subtle (key fill) and focusRing (key outline)
+// per color family subtle (key fill), fg (key text) and focusRing (key outline)
 const PALETTE = JSON.parse(readFileSync(join(HERE, "palette.json"), "utf-8")).semantic;
-const FINGER_HUES = ["purple", "blue", "green", "orange"]; // pinky, ring, middle, index
+// Pinky, ring, middle, index per hand: each finger in its own hue, and the same
+// finger on the other hand in a neighbouring one
+const FINGER_HUES = {
+	l: ["pink", "yellow", "green", "blue"],
+	r: ["red", "orange", "teal", "purple"],
+};
 
 /** CSS custom properties for one theme ("light" or "dark"). */
 // Neutral surfaces per theme, as [group, token] in the palette. Dark mode sits
@@ -76,11 +84,14 @@ function themeVars(theme) {
 	for (const [name, [group, token]] of Object.entries(NEUTRALS[theme])) {
 		vars[name] = tokens[group][token];
 	}
-	FINGER_HUES.forEach((hue, i) => {
-		const family = tokens[hue] ?? tokens[{ purple: "violet" }[hue]]; // Open Color: violet
-		vars[`f${i}`] = family.subtle;
-		vars[`f${i}s`] = family.focusRing;
-	});
+	for (const [hand, hues] of Object.entries(FINGER_HUES)) {
+		hues.forEach((hue, i) => {
+			const family = tokens[hue] ?? tokens[{ purple: "violet" }[hue]]; // Open Color: violet
+			vars[`f${hand}${i}`] = family.subtle;
+			vars[`f${hand}${i}s`] = family.focusRing;
+			vars[`f${hand}${i}t`] = family.fg;
+		});
+	}
 	return Object.entries(vars).map(([name, value]) => `--${name}: ${value};`).join(" ");
 }
 
@@ -253,8 +264,8 @@ function hull(points) {
 	return [...lower.slice(0, -1), ...upper.slice(0, -1)];
 }
 
-/** One key in pixels: finger-colored with its character, or blank with a label. */
-function keycap(x, y, w, h, { angle = 0, ch = null, finger = null, label = "" } = {}) {
+/** One key in pixels: colored (a COLOR value) with its character (letters in capitals), or blank with a label. */
+function keycap(x, y, w, h, { angle = 0, ch = null, color = null, label = "" } = {}) {
 	const cx = x + w / 2;
 	const cy = y + h / 2;
 	const turn = angle ? ` transform="rotate(${f1(angle)} ${f1(cx)} ${f1(cy)})"` : "";
@@ -268,24 +279,29 @@ function keycap(x, y, w, h, { angle = 0, ch = null, finger = null, label = "" } 
 	}
 	const cls = "key" + (HOME.has(ch) ? " home" : "") + (RARE.has(ch) ? " rare" : "");
 	const out = [
-		`<rect ${rect} fill="var(--f${finger})" stroke="var(--f${finger}s)" `
+		`<rect ${rect} fill="var(--f${color})" stroke="var(--f${color}s)" `
 		+ `stroke-width="${HOME.has(ch) ? 2.5 : 1.5}"${turn}/>`,
-		`<text class="${cls}" x="${f1(cx)}" y="${f1(cy + 9)}">${esc(ch)}</text>`,
+		`<text class="${cls}" x="${f1(cx)}" y="${f1(cy + 9)}" style="fill: var(--f${color}t)">${esc(ch.toUpperCase())}</text>`,
 	];
 	if (ch in SHIFTED) {
-		out.push(`<text class="shift" x="${f1(x + w - 7)}" y="${f1(y + 17)}">${esc(SHIFTED[ch])}</text>`);
+		out.push(`<text class="shift" x="${f1(x + w - 7)}" y="${f1(y + 17)}" style="fill: var(--f${color}t)">${esc(SHIFTED[ch])}</text>`);
 	}
 	return out.join("\n");
 }
 
+/** Two swatches per finger, left and right hand. */
 function legend(x, y) {
+	let lx = x;
 	return FINGERS.flatMap((name, i) => {
-		const lx = x + i * 92;
-		return [
-			`<rect x="${lx}" y="${y - 12}" width="16" height="16" rx="4" fill="var(--f${i})" `
-			+ `stroke="var(--f${i}s)" stroke-width="1.5"/>`,
-			`<text class="legend" x="${lx + 22}" y="${y + 1}">${name}</text>`,
-		];
+		const out = [`l${i}`, `r${i}`].map((color) => {
+			const rect = `<rect x="${lx}" y="${y - 12}" width="16" height="16" rx="4" fill="var(--f${color})" `
+				+ `stroke="var(--f${color}s)" stroke-width="1.5"/>`;
+			lx += 20;
+			return rect;
+		});
+		out.push(`<text class="legend" x="${lx + 2}" y="${y + 1}">${name}</text>`);
+		lx += 72;
+		return out;
 	}).join("\n");
 }
 
@@ -319,7 +335,7 @@ function splitBoard(title, subtitle, keys, label, { kase = true } = {}) {
 			outline.push(...points);
 			bottom = Math.max(bottom, ...points.map(([, cy]) => cy));
 			if (k.slot?.kind === "letter") {
-				drawn.push(keycap(px, py, pw, ph, { angle, ch: LETTER[`${k.slot.row},${col}`], finger: FINGER[col] }));
+				drawn.push(keycap(px, py, pw, ph, { angle, ch: LETTER[`${k.slot.row},${col}`], color: COLOR[col] }));
 			} else {
 				drawn.push(keycap(px, py, pw, ph, { angle, label: k.slot ? NUMBER[col] ?? "" : "" }));
 			}
@@ -345,7 +361,7 @@ function ansi() {
 	ANSI.forEach(([offset, row], r) => {
 		[...row].forEach((ch, i) => {
 			const x = pad + (offset + i) * U + GAP / 2;
-			parts.push(keycap(x, top + r * U, U - GAP, U - GAP, { ch, finger: ANSI_FINGER[i] }));
+			parts.push(keycap(x, top + r * U, U - GAP, U - GAP, { ch, color: ANSI_COLOR[i] }));
 		});
 	});
 	const width = Math.round(2 * pad + 12.5 * U);

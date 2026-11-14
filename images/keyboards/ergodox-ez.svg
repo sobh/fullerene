@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1399 685" width="1399" height="685" role="img" aria-label="Fullerene layout on the ErgoDox EZ">
 	<style>
-		svg { --ink: #09090b; --ink-2: #52525b; --bg: #ffffff; --case: #f4f4f5; --blank: #fafafa; --blank-s: #e4e4e7; --f0: #f3e8ff; --f0s: #a855f7; --f1: #dbeafe; --f1s: #3b82f6; --f2: #dcfce7; --f2s: #22c55e; --f3: #ffedd5; --f3s: #f97316; }
+		svg { --ink: #09090b; --ink-2: #52525b; --bg: #ffffff; --case: #f4f4f5; --blank: #fafafa; --blank-s: #e4e4e7; --fl0: #fce7f3; --fl0s: #ec4899; --fl0t: #a41752; --fl1: #fef9c3; --fl1s: #eab308; --fl1t: #713f12; --fl2: #dcfce7; --fl2s: #22c55e; --fl2t: #116932; --fl3: #dbeafe; --fl3s: #3b82f6; --fl3t: #173da6; --fr0: #fee2e2; --fr0s: #ef4444; --fr0t: #991919; --fr1: #ffedd5; --fr1s: #f97316; --fr1t: #92310a; --fr2: #ccfbf1; --fr2s: #14b8a6; --fr2t: #0c5d56; --fr3: #f3e8ff; --fr3s: #a855f7; --fr3t: #641ba3; }
 		@media (prefers-color-scheme: dark) {
-			svg { --ink: #fafafa; --ink-2: #a1a1aa; --bg: #18181b; --case: #27272a; --blank: #18181b; --blank-s: #3f3f46; --f0: #2f0553; --f0s: #a855f7; --f1: #14204a; --f1s: #3b82f6; --f2: #042713; --f2s: #22c55e; --f3: #3b1106; --f3s: #f97316; }
+			svg { --ink: #fafafa; --ink-2: #a1a1aa; --bg: #18181b; --case: #27272a; --blank: #18181b; --blank-s: #3f3f46; --fl0: #45061f; --fl0s: #ec4899; --fl0t: #f9a8d4; --fl1: #422006; --fl1s: #eab308; --fl1t: #fde047; --fl2: #042713; --fl2s: #22c55e; --fl2t: #86efac; --fl3: #14204a; --fl3s: #3b82f6; --fl3t: #a3cfff; --fr0: #300c0c; --fr0s: #ef4444; --fr0t: #fca5a5; --fr1: #3b1106; --fr1s: #f97316; --fr1t: #fdba74; --fr2: #032726; --fr2s: #14b8a6; --fr2t: #5eead4; --fr3: #2f0553; --fr3s: #a855f7; --fr3t: #d8b4fe; }
 		}
 
 		text { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: var(--ink); }
@@ -24,49 +24,49 @@
 <polygon class="case" points="55.0,147.0 279.0,123.0 337.0,123.0 529.0,139.0 663.6,420.2 639.1,472.8 585.0,588.8 87.0,461.0 55.0,397.0"/>
 <rect class="blank" x="55.0" y="147.0" width="90.0" height="58.0" rx="9"/>
 <rect class="blank" x="55.0" y="211.0" width="90.0" height="58.0" rx="9"/>
-<rect x="55.0" y="275.0" width="90.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key rare" x="100.0" y="313.0">q</text>
-<rect x="55.0" y="339.0" width="90.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key rare" x="100.0" y="377.0">z</text>
+<rect x="55.0" y="275.0" width="90.0" height="58.0" rx="9" fill="var(--fl0)" stroke="var(--fl0s)" stroke-width="1.5"/>
+<text class="key rare" x="100.0" y="313.0" style="fill: var(--fl0t)">Q</text>
+<rect x="55.0" y="339.0" width="90.0" height="58.0" rx="9" fill="var(--fl0)" stroke="var(--fl0s)" stroke-width="1.5"/>
+<text class="key rare" x="100.0" y="377.0" style="fill: var(--fl0t)">Z</text>
 <rect class="blank" x="151.0" y="147.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="180.0" y="182.0">1</text>
 <rect class="blank" x="151.0" y="211.0" width="58.0" height="58.0" rx="9"/>
-<rect x="151.0" y="275.0" width="58.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="2.5"/>
-<text class="key home" x="180.0" y="313.0">c</text>
-<rect x="151.0" y="339.0" width="58.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key" x="180.0" y="377.0">y</text>
+<rect x="151.0" y="275.0" width="58.0" height="58.0" rx="9" fill="var(--fl0)" stroke="var(--fl0s)" stroke-width="2.5"/>
+<text class="key home" x="180.0" y="313.0" style="fill: var(--fl0t)">C</text>
+<rect x="151.0" y="339.0" width="58.0" height="58.0" rx="9" fill="var(--fl0)" stroke="var(--fl0s)" stroke-width="1.5"/>
+<text class="key" x="180.0" y="377.0" style="fill: var(--fl0t)">Y</text>
 <rect class="blank" x="215.0" y="131.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="244.0" y="166.0">2</text>
-<rect x="215.0" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="1.5"/>
-<text class="key" x="244.0" y="233.0">v</text>
-<rect x="215.0" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="2.5"/>
-<text class="key home" x="244.0" y="297.0">s</text>
-<rect x="215.0" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="1.5"/>
-<text class="key" x="244.0" y="361.0">g</text>
+<rect x="215.0" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--fl1)" stroke="var(--fl1s)" stroke-width="1.5"/>
+<text class="key" x="244.0" y="233.0" style="fill: var(--fl1t)">V</text>
+<rect x="215.0" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--fl1)" stroke="var(--fl1s)" stroke-width="2.5"/>
+<text class="key home" x="244.0" y="297.0" style="fill: var(--fl1t)">S</text>
+<rect x="215.0" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--fl1)" stroke="var(--fl1s)" stroke-width="1.5"/>
+<text class="key" x="244.0" y="361.0" style="fill: var(--fl1t)">G</text>
 <rect class="blank" x="279.0" y="123.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="308.0" y="158.0">3</text>
-<rect x="279.0" y="187.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="1.5"/>
-<text class="key" x="308.0" y="225.0">d</text>
-<rect x="279.0" y="251.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="2.5"/>
-<text class="key home" x="308.0" y="289.0">t</text>
-<rect x="279.0" y="315.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="1.5"/>
-<text class="key" x="308.0" y="353.0">m</text>
+<rect x="279.0" y="187.0" width="58.0" height="58.0" rx="9" fill="var(--fl2)" stroke="var(--fl2s)" stroke-width="1.5"/>
+<text class="key" x="308.0" y="225.0" style="fill: var(--fl2t)">D</text>
+<rect x="279.0" y="251.0" width="58.0" height="58.0" rx="9" fill="var(--fl2)" stroke="var(--fl2s)" stroke-width="2.5"/>
+<text class="key home" x="308.0" y="289.0" style="fill: var(--fl2t)">T</text>
+<rect x="279.0" y="315.0" width="58.0" height="58.0" rx="9" fill="var(--fl2)" stroke="var(--fl2s)" stroke-width="1.5"/>
+<text class="key" x="308.0" y="353.0" style="fill: var(--fl2t)">M</text>
 <rect class="blank" x="343.0" y="131.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="372.0" y="166.0">4</text>
-<rect x="343.0" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="372.0" y="233.0">l</text>
-<rect x="343.0" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="2.5"/>
-<text class="key home" x="372.0" y="297.0">n</text>
-<rect x="343.0" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="372.0" y="361.0">r</text>
+<rect x="343.0" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="1.5"/>
+<text class="key" x="372.0" y="233.0" style="fill: var(--fl3t)">L</text>
+<rect x="343.0" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="2.5"/>
+<text class="key home" x="372.0" y="297.0" style="fill: var(--fl3t)">N</text>
+<rect x="343.0" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="1.5"/>
+<text class="key" x="372.0" y="361.0" style="fill: var(--fl3t)">R</text>
 <rect class="blank" x="407.0" y="139.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="436.0" y="174.0">5</text>
-<rect x="407.0" y="203.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="436.0" y="241.0">j</text>
-<rect x="407.0" y="267.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="2.5"/>
-<text class="key home" x="436.0" y="305.0">w</text>
-<rect x="407.0" y="331.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="436.0" y="369.0">x</text>
+<rect x="407.0" y="203.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="1.5"/>
+<text class="key" x="436.0" y="241.0" style="fill: var(--fl3t)">J</text>
+<rect x="407.0" y="267.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="2.5"/>
+<text class="key home" x="436.0" y="305.0" style="fill: var(--fl3t)">W</text>
+<rect x="407.0" y="331.0" width="58.0" height="58.0" rx="9" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="1.5"/>
+<text class="key" x="436.0" y="369.0" style="fill: var(--fl3t)">X</text>
 <rect class="blank" x="471.0" y="139.0" width="58.0" height="58.0" rx="9"/>
 <rect class="blank" x="471.0" y="203.0" width="58.0" height="90.0" rx="9"/>
 <rect class="blank" x="471.0" y="299.0" width="58.0" height="90.0" rx="9"/>
@@ -84,55 +84,55 @@
 <polygon class="case" points="735.6,420.2 870.2,139.0 1062.2,123.0 1120.2,123.0 1344.2,147.0 1344.2,397.0 1312.2,461.0 814.2,588.8 760.1,472.8"/>
 <rect class="blank" x="1254.2" y="147.0" width="90.0" height="58.0" rx="9"/>
 <rect class="blank" x="1254.2" y="211.0" width="90.0" height="58.0" rx="9"/>
-<rect x="1254.2" y="275.0" width="90.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key rare" x="1299.2" y="313.0">'</text>
-<text class="shift" x="1337.2" y="292.0">&quot;</text>
-<rect x="1254.2" y="339.0" width="90.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key rare" x="1299.2" y="377.0">;</text>
-<text class="shift" x="1337.2" y="356.0">:</text>
+<rect x="1254.2" y="275.0" width="90.0" height="58.0" rx="9" fill="var(--fr0)" stroke="var(--fr0s)" stroke-width="1.5"/>
+<text class="key rare" x="1299.2" y="313.0" style="fill: var(--fr0t)">'</text>
+<text class="shift" x="1337.2" y="292.0" style="fill: var(--fr0t)">&quot;</text>
+<rect x="1254.2" y="339.0" width="90.0" height="58.0" rx="9" fill="var(--fr0)" stroke="var(--fr0s)" stroke-width="1.5"/>
+<text class="key rare" x="1299.2" y="377.0" style="fill: var(--fr0t)">;</text>
+<text class="shift" x="1337.2" y="356.0" style="fill: var(--fr0t)">:</text>
 <rect class="blank" x="1190.2" y="147.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="1219.2" y="182.0">0</text>
 <rect class="blank" x="1190.2" y="211.0" width="58.0" height="58.0" rx="9"/>
-<rect x="1190.2" y="275.0" width="58.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="2.5"/>
-<text class="key home" x="1219.2" y="313.0">i</text>
-<rect x="1190.2" y="339.0" width="58.0" height="58.0" rx="9" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="key" x="1219.2" y="377.0">-</text>
-<text class="shift" x="1241.2" y="356.0">_</text>
+<rect x="1190.2" y="275.0" width="58.0" height="58.0" rx="9" fill="var(--fr0)" stroke="var(--fr0s)" stroke-width="2.5"/>
+<text class="key home" x="1219.2" y="313.0" style="fill: var(--fr0t)">I</text>
+<rect x="1190.2" y="339.0" width="58.0" height="58.0" rx="9" fill="var(--fr0)" stroke="var(--fr0s)" stroke-width="1.5"/>
+<text class="key" x="1219.2" y="377.0" style="fill: var(--fr0t)">-</text>
+<text class="shift" x="1241.2" y="356.0" style="fill: var(--fr0t)">_</text>
 <rect class="blank" x="1126.2" y="131.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="1155.2" y="166.0">9</text>
-<rect x="1126.2" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="1.5"/>
-<text class="key" x="1155.2" y="233.0">u</text>
-<rect x="1126.2" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="2.5"/>
-<text class="key home" x="1155.2" y="297.0">e</text>
-<rect x="1126.2" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--f1)" stroke="var(--f1s)" stroke-width="1.5"/>
-<text class="key" x="1155.2" y="361.0">/</text>
-<text class="shift" x="1177.2" y="340.0">?</text>
+<rect x="1126.2" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--fr1)" stroke="var(--fr1s)" stroke-width="1.5"/>
+<text class="key" x="1155.2" y="233.0" style="fill: var(--fr1t)">U</text>
+<rect x="1126.2" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--fr1)" stroke="var(--fr1s)" stroke-width="2.5"/>
+<text class="key home" x="1155.2" y="297.0" style="fill: var(--fr1t)">E</text>
+<rect x="1126.2" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--fr1)" stroke="var(--fr1s)" stroke-width="1.5"/>
+<text class="key" x="1155.2" y="361.0" style="fill: var(--fr1t)">/</text>
+<text class="shift" x="1177.2" y="340.0" style="fill: var(--fr1t)">?</text>
 <rect class="blank" x="1062.2" y="123.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="1091.2" y="158.0">8</text>
-<rect x="1062.2" y="187.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="1.5"/>
-<text class="key" x="1091.2" y="225.0">o</text>
-<rect x="1062.2" y="251.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="2.5"/>
-<text class="key home" x="1091.2" y="289.0">a</text>
-<rect x="1062.2" y="315.0" width="58.0" height="58.0" rx="9" fill="var(--f2)" stroke="var(--f2s)" stroke-width="1.5"/>
-<text class="key" x="1091.2" y="353.0">,</text>
-<text class="shift" x="1113.2" y="332.0">&lt;</text>
+<rect x="1062.2" y="187.0" width="58.0" height="58.0" rx="9" fill="var(--fr2)" stroke="var(--fr2s)" stroke-width="1.5"/>
+<text class="key" x="1091.2" y="225.0" style="fill: var(--fr2t)">O</text>
+<rect x="1062.2" y="251.0" width="58.0" height="58.0" rx="9" fill="var(--fr2)" stroke="var(--fr2s)" stroke-width="2.5"/>
+<text class="key home" x="1091.2" y="289.0" style="fill: var(--fr2t)">A</text>
+<rect x="1062.2" y="315.0" width="58.0" height="58.0" rx="9" fill="var(--fr2)" stroke="var(--fr2s)" stroke-width="1.5"/>
+<text class="key" x="1091.2" y="353.0" style="fill: var(--fr2t)">,</text>
+<text class="shift" x="1113.2" y="332.0" style="fill: var(--fr2t)">&lt;</text>
 <rect class="blank" x="998.2" y="131.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="1027.2" y="166.0">7</text>
-<rect x="998.2" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="1027.2" y="233.0">f</text>
-<rect x="998.2" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="2.5"/>
-<text class="key home" x="1027.2" y="297.0">h</text>
-<rect x="998.2" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="1027.2" y="361.0">p</text>
+<rect x="998.2" y="195.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="1.5"/>
+<text class="key" x="1027.2" y="233.0" style="fill: var(--fr3t)">F</text>
+<rect x="998.2" y="259.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="2.5"/>
+<text class="key home" x="1027.2" y="297.0" style="fill: var(--fr3t)">H</text>
+<rect x="998.2" y="323.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="1.5"/>
+<text class="key" x="1027.2" y="361.0" style="fill: var(--fr3t)">P</text>
 <rect class="blank" x="934.2" y="139.0" width="58.0" height="58.0" rx="9"/>
 <text class="num" x="963.2" y="174.0">6</text>
-<rect x="934.2" y="203.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="963.2" y="241.0">k</text>
-<rect x="934.2" y="267.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="2.5"/>
-<text class="key home" x="963.2" y="305.0">b</text>
-<rect x="934.2" y="331.0" width="58.0" height="58.0" rx="9" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="key" x="963.2" y="369.0">.</text>
-<text class="shift" x="985.2" y="348.0">&gt;</text>
+<rect x="934.2" y="203.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="1.5"/>
+<text class="key" x="963.2" y="241.0" style="fill: var(--fr3t)">K</text>
+<rect x="934.2" y="267.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="2.5"/>
+<text class="key home" x="963.2" y="305.0" style="fill: var(--fr3t)">B</text>
+<rect x="934.2" y="331.0" width="58.0" height="58.0" rx="9" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="1.5"/>
+<text class="key" x="963.2" y="369.0" style="fill: var(--fr3t)">.</text>
+<text class="shift" x="985.2" y="348.0" style="fill: var(--fr3t)">&gt;</text>
 <rect class="blank" x="870.2" y="139.0" width="58.0" height="58.0" rx="9"/>
 <rect class="blank" x="870.2" y="203.0" width="58.0" height="90.0" rx="9"/>
 <rect class="blank" x="870.2" y="299.0" width="58.0" height="90.0" rx="9"/>
@@ -147,12 +147,16 @@
 <rect class="blank" x="843.7" y="433.2" width="58.0" height="122.0" rx="9" transform="rotate(-25.0 872.7 494.2)"/>
 <rect class="blank" x="772.2" y="463.2" width="58.0" height="58.0" rx="9" transform="rotate(-25.0 801.2 492.2)"/>
 <rect class="blank" x="799.2" y="521.2" width="58.0" height="58.0" rx="9" transform="rotate(-25.0 828.2 550.2)"/>
-<rect x="36" y="644.767023218919" width="16" height="16" rx="4" fill="var(--f0)" stroke="var(--f0s)" stroke-width="1.5"/>
-<text class="legend" x="58" y="657.767023218919">Pinky</text>
-<rect x="128" y="644.767023218919" width="16" height="16" rx="4" fill="var(--f1)" stroke="var(--f1s)" stroke-width="1.5"/>
-<text class="legend" x="150" y="657.767023218919">Ring</text>
-<rect x="220" y="644.767023218919" width="16" height="16" rx="4" fill="var(--f2)" stroke="var(--f2s)" stroke-width="1.5"/>
-<text class="legend" x="242" y="657.767023218919">Middle</text>
-<rect x="312" y="644.767023218919" width="16" height="16" rx="4" fill="var(--f3)" stroke="var(--f3s)" stroke-width="1.5"/>
-<text class="legend" x="334" y="657.767023218919">Index</text>
+<rect x="36" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fl0)" stroke="var(--fl0s)" stroke-width="1.5"/>
+<rect x="56" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fr0)" stroke="var(--fr0s)" stroke-width="1.5"/>
+<text class="legend" x="78" y="657.767023218919">Pinky</text>
+<rect x="148" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fl1)" stroke="var(--fl1s)" stroke-width="1.5"/>
+<rect x="168" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fr1)" stroke="var(--fr1s)" stroke-width="1.5"/>
+<text class="legend" x="190" y="657.767023218919">Ring</text>
+<rect x="260" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fl2)" stroke="var(--fl2s)" stroke-width="1.5"/>
+<rect x="280" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fr2)" stroke="var(--fr2s)" stroke-width="1.5"/>
+<text class="legend" x="302" y="657.767023218919">Middle</text>
+<rect x="372" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fl3)" stroke="var(--fl3s)" stroke-width="1.5"/>
+<rect x="392" y="644.767023218919" width="16" height="16" rx="4" fill="var(--fr3)" stroke="var(--fr3s)" stroke-width="1.5"/>
+<text class="legend" x="414" y="657.767023218919">Index</text>
 </svg>

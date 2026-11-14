@@ -3,9 +3,9 @@
 #
 # Description:
 #   Builds the Fullerene website from the repo's Markdown pages: README.md
-#   becomes index.html and KEYBOARDS.md keyboards.html, next to copies of the
-#   images, the Linux and typing trainer files, and the license files they
-#   link to.
+#   becomes index.html, KEYBOARDS.md keyboards.html and DEVELOPMENT.md
+#   development.html, next to copies of the images, the Linux and typing
+#   trainer files, and the license files they link to.
 #
 # Usage:
 #   {{SCRIPT}} [-h|--help] [--] [output_dir]
@@ -84,7 +84,7 @@ command -v pandoc >/dev/null 2>&1 || die "pandoc not found"
 # ==== Build ===================================================================
 # Render one Markdown page ($1) to an HTML page ($2, empty for index.html,
 # the site's address). The template adds the side navigation, highlighting
-# page $3 (index or keyboards), and the page's title ($4) and description ($5)
+# page $3 (index, keyboards or development), and the page's title ($4) and description ($5)
 # for search results and link previews.
 render() {
 	pandoc --from gfm --to html5 --standalone --wrap none \
@@ -107,6 +107,9 @@ render README.md "" index \
 render KEYBOARDS.md keyboards.html keyboards \
 	"Fullerene on the ErgoDox EZ, Advantage360, Go60 and Imprint" \
 	"The Fullerene keyboard layout on the ErgoDox EZ, Kinesis Advantage360, MoErgo Go60 and Cyboard Imprint split keyboards."
+render DEVELOPMENT.md development.html development \
+	"How the Fullerene keyboard layout was made" \
+	"How the Fullerene keyboard layout was optimized: goals, scoring, the core-first search and the alternatives tested."
 
 # Search engines: allow everything, and list the pages
 cat >"$output_dir/robots.txt" <<-ROBOTS
@@ -120,6 +123,7 @@ cat >"$output_dir/sitemap.xml" <<-SITEMAP
 	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		<url><loc>$site_url</loc></url>
 		<url><loc>${site_url}keyboards.html</loc></url>
+		<url><loc>${site_url}development.html</loc></url>
 	</urlset>
 SITEMAP
 
