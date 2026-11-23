@@ -8,16 +8,16 @@ were also good by the community's own measures, then testing the alternatives.
 
 ## 🎯 Goals
 
-- **Light pinkies:** no letter on the pinky top keys, and as little as
-  possible on the outer pinky column.
+- **Light pinkies:** no letter on the pinky top keys, and as little as possible
+  on the outer pinky column.
 - **Well rounded:** no stat far off the best modern layouts, rather than one
   stat at its minimum.
 - **Editor friendly:** `b` left of `e` on the right home row for the word
   motions of Vim and Helix, `w` on the left hand, and `c v z` (copy, paste,
   undo) on the left hand.
 
-The targets below are community-style stats on the `oxey_english` corpus,
-set close to Sturdy's numbers:
+The targets below are community-style stats on the `oxey_english` corpus, set
+close to Sturdy's numbers:
 
 | Stat                              | Target | Fullerene |
 | --------------------------------- | ------ | --------- |
@@ -34,21 +34,21 @@ A slightly higher SFB was accepted as long as SFS stayed low.
 
 ## ⚙️ The setup
 
-- **Keyboard:** an ErgoDox with six columns per hand and three letter rows.
-  The pinky top keys hold no letter, which leaves 32 keys for the 26 letters
-  and `' , . / - ;`.
+- **Keyboard:** an ErgoDox with six columns per hand and three letter rows. The
+  pinky top keys hold no letter, which leaves 32 keys for the 26 letters and
+  `' , . / - ;`.
 - **Key costs:** the ring and pinky keys cost more than the index and middle
   ones, and the outer pinky column the most.
 - **Corpus:** English n-grams (`eng_shai`) for the optimizer. The stats above
   use a second corpus (`oxey_english`), so a layout can't simply overfit one.
-- **Scoring:** a weighted sum of metrics: key costs, finger balance,
-  same-finger repeats, movement patterns, rolls, lateral stretches and
-  more. Lower is better.
+- **Scoring:** a weighted sum of metrics: key costs, finger balance, same-finger
+  repeats, movement patterns, rolls, lateral stretches and more. Lower is
+  better.
 
 ### 🤙 Why the pinky top keys stay empty
 
-The pinky top keys were left out of the keyboard before any optimizing, so
-the optimizer never placed a letter there. It was a design choice, for three
+The pinky top keys were left out of the keyboard before any optimizing, so the
+optimizer never placed a letter there. It was a design choice, for three
 reasons:
 
 1. **The hardest pinky reach:** reaching up stretches the shortest, weakest
@@ -72,15 +72,15 @@ reasons:
    ring costs 4 and ring to pinky 6, against 0.1-0.9 for any move from the
    index.
 
-The cost is on the index finger. With the pinky top keys out, the outer
-pinky home and bottom keys take the four rarest keys (`q z ' ;`), and the
-left index takes more letters (`l j n w r x`): the main reason Fullerene's
-SFS (7.04%) is above Graphite's (5.63%). It trades a little more work for
-the strongest finger for a lighter weakest one.
+The cost is on the index finger. With the pinky top keys out, the outer pinky
+home and bottom keys take the four rarest keys (`q z ' ;`), and the left index
+takes more letters (`l j n w r x`): the main reason Fullerene's SFS (7.04%) is
+above Graphite's (5.63%). It trades a little more work for the strongest finger
+for a lighter weakest one.
 
-On a split keyboard, the pinky top keys are free for your keymap, such as
-Tab or Esc. The ANSI version is the exception: a laptop has no outer pinky
-column, so `q` and `;` move to the pinky top keys there.
+On a split keyboard, the pinky top keys are free for your keymap, such as Tab or
+Esc. The ANSI version is the exception: a laptop has no outer pinky column, so
+`q` and `;` move to the pinky top keys there.
 
 ## 📏 Evaluation metrics
 
@@ -89,11 +89,10 @@ and the community stats, which check the result against other layouts.
 
 ### Optimizer score
 
-The score is the weighted sum of the metrics below, on the `eng_shai`
-n-grams. Rolls have negative weights, so they lower it. **Stock** is the
-weight the optimizer ships with (`default.yml`), **Fullerene** the one used
-here, in bold where they differ. **Cost** is each metric's share of
-Fullerene's 205.66:
+The score is the weighted sum of the metrics below, on the `eng_shai` n-grams.
+Rolls have negative weights, so they lower it. **Stock** is the weight the
+optimizer ships with (`default.yml`), **Fullerene** the one used here, in bold
+where they differ. **Cost** is each metric's share of Fullerene's 205.66:
 
 | Metric                              | Measures                                                                                                      | Stock   | Fullerene | Cost   |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- | --------- | ------ |
@@ -112,26 +111,25 @@ Fullerene's 205.66:
 | Inward rolls                        | Two keys on one hand toward the index, then the other hand                                                    | **-2**  | **-3**    | -19.26 |
 | Outward rolls                       | Two keys on one hand away from the index, then the other hand                                                 | **-1**  | **-3**    | -47.22 |
 
-Weights don't compare across metrics, since each metric has its own scale.
-The changes from the stock weights:
+Weights don't compare across metrics, since each metric has its own scale. The
+changes from the stock weights:
 
 - **Same-finger bigrams** weigh 2000 instead of 780, and skipgrams (secondary
   bigrams) 0.2 instead of 0.1: the stock weights let SFB climb to about 2%.
 - **Rolls** count the same in both directions (-3), where the stock weights
   favour inward rolls (-2) over outward ones (-1).
-- **Lateral stretches** and the **manual bigram penalty** (weak-finger
-  doubles) are on; they are off by default.
+- **Lateral stretches** and the **manual bigram penalty** (weak-finger doubles)
+  are on; they are off by default.
 - **Shortcut keys** is on, to keep `c` and `v` on the left hand.
 
 The next section covers how these weights were tuned.
 
 ### Community stats
 
-The stats follow the definitions of the alt-layout community's analyzers,
-on the `oxey_english` corpus, with the standard finger model: the pinky
-covers its two columns and the pinky top key, and the index its two. Values
-are percentages of all bigrams or trigrams that have every key on the
-layout.
+The stats follow the definitions of the alt-layout community's analyzers, on the
+`oxey_english` corpus, with the standard finger model: the pinky covers its two
+columns and the pinky top key, and the index its two. Values are percentages of
+all bigrams or trigrams that have every key on the layout.
 
 | Stat                | Counts                                                                              |
 | ------------------- | ----------------------------------------------------------------------------------- |
@@ -146,65 +144,63 @@ layout.
 
 ## 🔧 Tuning the scoring
 
-The first runs gave low scores but poor layouts, so most of the work went
-into the weights:
+The first runs gave low scores but poor layouts, so most of the work went into
+the weights:
 
-1. **Same-finger bigrams:** the first weights let SFB climb to about 2%,
-   twice that of Graphite, Gallium and Sturdy. The SFB weight went up until
-   optimized layouts landed near 1%.
-2. **Rolls:** outward rolls first counted half as much as inward ones; they
-   now count the same.
-3. **Lateral stretches:** without a penalty, the optimizer put `r` on the
-   index finger's inner column, with 2.58% lateral stretches. A penalty of
-   12 (5 and 8 were also tried) gave the layouts closest to all targets.
-4. **Finger balance:** a stronger balance term loaded the left ring and
-   middle fingers more, but pushed SFB to 1.5-1.9%, so its weight stayed at
-   50.
-5. **Shortcuts:** a small cost nudges `c` and `v` to the left hand. Pinning
-   all of `z x c v` in their QWERTY positions was stricter than needed, and
-   cost about 12.6 points.
+1. **Same-finger bigrams:** the first weights let SFB climb to about 2%, twice
+   that of Graphite, Gallium and Sturdy. The SFB weight went up until optimized
+   layouts landed near 1%.
+2. **Rolls:** outward rolls first counted half as much as inward ones; they now
+   count the same.
+3. **Lateral stretches:** without a penalty, the optimizer put `r` on the index
+   finger's inner column, with 2.58% lateral stretches. A penalty of 12 (5 and 8
+   were also tried) gave the layouts closest to all targets.
+4. **Finger balance:** a stronger balance term loaded the left ring and middle
+   fingers more, but pushed SFB to 1.5-1.9%, so its weight stayed at 50.
+5. **Shortcuts:** a small cost nudges `c` and `v` to the left hand. Pinning all
+   of `z x c v` in their QWERTY positions was stricter than needed, and cost
+   about 12.6 points.
 6. **Editor keys:** `b` and `e` were pinned on the right home row. With them
    there, the optimizer put `w` on the left hand on its own.
 
-Every change was checked by optimizing again and comparing the results
-against the targets, with several runs per setting, since each run ends in a
-different layout.
+Every change was checked by optimizing again and comparing the results against
+the targets, with several runs per setting, since each run ends in a different
+layout.
 
 ## ⚛️ Core first
 
-The best layouts so far still put a common key, `w`, on the outer pinky.
-Pinning other keys there didn't help: every try scored worse or only moved
-`w` down a row. So the layout was built in two stages instead:
+The best layouts so far still put a common key, `w`, on the outer pinky. Pinning
+other keys there didn't help: every try scored worse or only moved `w` down a
+row. So the layout was built in two stages instead:
 
-1. **The 28 core keys:** with the outer pinky keys disabled and the four
-   rarest keys (`q z ' ;`) left out of the n-grams. The best core came from
-   an earlier run, without its outer pinky keys.
+1. **The 28 core keys:** with the outer pinky keys disabled and the four rarest
+   keys (`q z ' ;`) left out of the n-grams. The best core came from an earlier
+   run, without its outer pinky keys.
 2. **The outer pinky:** every placement of `q z ' ;` on the four outer pinky
-   keys, all 24 of them, scored on the full keyboard. The best put `q` and
-   `z` on the left and `'` and `;` on the right.
+   keys, all 24 of them, scored on the full keyboard. The best put `q` and `z`
+   on the left and `'` and `;` on the right.
 
-This is the shape in the name: the most used keys packed in the middle, and
-only the rarest on the edge.
+This is the shape in the name: the most used keys packed in the middle, and only
+the rarest on the edge.
 
 ## ✋ Hand swaps
 
-Two swaps on the left index finger finished the layout. Both keep the
-community stats as they were:
+Two swaps on the left index finger finished the layout. Both keep the community
+stats as they were:
 
 - `w` with `x`, to put `w` on the home row.
-- `x` with `j`, to put `x` on the cheaper bottom key, with fewer scissors
-  on real typing.
+- `x` with `j`, to put `x` on the cheaper bottom key, with fewer scissors on
+  real typing.
 
 The SFS of 7.04% is the one target left open. The left index covers
-`l j n w r x`, and no single swap brings SFS under 6.5% without raising SFB
-to 1.5% or more.
+`l j n w r x`, and no single swap brings SFS under 6.5% without raising SFB to
+1.5% or more.
 
 ## 🔬 Alternatives tested
 
-With Fullerene chosen, its right hand (close to Graphite's) was pinned, all
-but `k`, and
-the left hand optimized again with other home rows, to see what it would
-cost to follow Graphite more closely. Each home row was optimized twice:
+With Fullerene chosen, its right hand (close to Graphite's) was pinned, all but
+`k`, and the left hand optimized again with other home rows, to see what it
+would cost to follow Graphite more closely. Each home row was optimized twice:
 with the usual key costs, and with ring and pinky keys about 50% dearer.
 
 | Left home row (pinky to index) | Score  | SFB  | SFS  | Pinky | Weak doubles |
@@ -221,19 +217,48 @@ Stats in %, lowest-scoring layout of each home row. Scores are the optimizer's
 
 `n` on the pinky brings SFS under the target, but costs 2-4% more pinky load
 and, for `n r t s` and `n l t s`, more ring and pinky doubles (`ll`). The
-optimizer resists it mostly because of movement: a bigram from the pinky to
-the ring or middle finger, like `nd` or `nt`, costs far more than one from
-the index, where Fullerene keeps `n`.
+optimizer resists it mostly because of movement: a bigram from the pinky to the
+ring or middle finger, like `nd` or `nt`, costs far more than one from the
+index, where Fullerene keeps `n`.
 
-Fullerene stayed the best overall. The light right index (12.1% of
-keystrokes) wasn't treated as a flaw: Vim, Helix and window manager
-shortcuts already keep that finger busy.
+Fullerene stayed the best overall. The light right index (12.1% of keystrokes)
+wasn't treated as a flaw: Vim, Helix and window manager shortcuts already keep
+that finger busy.
+
+### 🔤 Why `n`, not `r` or `l`, on the index home key
+
+`l`, `n` and `r` share the left index column, on the top, home and bottom keys.
+Moving them between rows keeps the same SFB and SFS; it only changes how often
+each key is pressed and the moves to the keys around them.
+
+`n` is the most common of the three (6.76%, against 6.01% for `r` and 4.12% for
+`l`), but its neighbours matter more. `d` sits on the middle top key, and `nd`
+(1.29%) is one of the most common bigrams in English. With `n` on the bottom
+key, `nd` becomes a full scissor: index on the bottom row, middle on the top.
+`n`'s other common bigrams, `ng`, `nt`, `ns` and `nc`, are also one row away
+from the home key. `r` has far rarer bigrams with those keys (`rd` 0.18%, `rg`
+0.08%).
+
+All six arrangements of the column:
+
+| Top | Home    | Bottom | Score      | Scissors |
+| --- | ------- | ------ | ---------- | -------- |
+| `l` | **`n`** | `r`    | **205.66** | 0.95     |
+| `r` | `n`     | `l`    | 207.70     | 1.07     |
+| `l` | `r`     | `n`    | 208.54     | 1.98     |
+| `n` | `r`     | `l`    | 210.76     | 0.95     |
+| `r` | `l`     | `n`    | 214.39     | 2.10     |
+| `n` | `l`     | `r`    | 214.75     | 0.94     |
+
+Scissors in %; the other community stats are the same in all six. Swapping `n`
+and `r` costs 2.88 points, mostly from movement (2.12, the `nd` scissor among
+them) and key costs (0.61).
 
 ## 📊 Compared with well-known layouts
 
-Community-style stats on the `oxey_english` corpus, in % (standard finger
-model, pinky top key on the pinky), with the optimizer's score from the same
-setup as above:
+Community-style stats on the `oxey_english` corpus, in % (standard finger model,
+pinky top key on the pinky), with the optimizer's score from the same setup as
+above:
 
 | Layout                                                  | Score  | SFB  | SFS   | Weak doubles | LSB  | Scissors | Pinky     | Rolls (in / out)    | Redirects |
 | ------------------------------------------------------- | ------ | ---- | ----- | ------------ | ---- | -------- | --------- | ------------------- | --------- |
@@ -251,15 +276,16 @@ Gallium and Engrammer were placed on the same ErgoDox.
   redirects (2.07%), with fewer lateral stretches than Sturdy, Graphite and
   Gallium.
 - **It trails on** same-finger bigrams and skipgrams. Sturdy, Graphite and
-  Gallium keep SFB under 1.1% and SFS under 5.8%, at the price of 16-18%
-  pinky load.
-- **Its rolls lean outward** (32.1% out, 13.0% in), the reverse of the
-  others. The scoring counts both directions the same.
-- **Engrammer** has the fewest lateral stretches and scissors, but more SFB
-  and SFS than Fullerene, Sturdy, Graphite and Gallium.
+  Gallium keep SFB under 1.1% and SFS under 5.8%, at the price of 16-18% pinky
+  load.
+- **Its rolls lean outward** (32.1% out, 13.0% in), the reverse of the others.
+  The scoring counts both directions the same.
+- **Engrammer** has the fewest lateral stretches and scissors, but more SFB and
+  SFS than Fullerene, Sturdy, Graphite and Gallium.
 
 > [!NOTE]
+>
 > The score favours Fullerene: it was optimized for this exact setup, and the
 > keyboard files give the pinky top key, which the other layouts use, to the
-> ring finger. Use the score to rank layouts within one setup, and the stats
-> to compare them.
+> ring finger. Use the score to rank layouts within one setup, and the stats to
+> compare them.
